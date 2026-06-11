@@ -62,10 +62,17 @@ public class StudentService {
     }
 
     private Student mapRequestToStudent(StudentRequest request, Student student) {
-        student.setName(request.getName().trim());
-        student.setEmail(request.getEmail().trim().toLowerCase());
-        student.setCourse(request.getCourse().trim());
+        student.setName(normalizeRequiredField(request.getName(), "name"));
+        student.setEmail(normalizeRequiredField(request.getEmail(), "email").toLowerCase());
+        student.setCourse(normalizeRequiredField(request.getCourse(), "course"));
         student.setAge(request.getAge());
         return student;
+    }
+
+    private String normalizeRequiredField(String value, String fieldName) {
+        if (value == null) {
+            throw new IllegalArgumentException(fieldName + " is required");
+        }
+        return value.trim();
     }
 }

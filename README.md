@@ -40,7 +40,7 @@ Base URL: `http://localhost:8080/api/students`
 Set environment variables (optional defaults are provided in `application.properties`):
 - `DB_URL` (default: `jdbc:mysql://localhost:3306/student_management`)
 - `DB_USERNAME` (default: `root`)
-- `DB_PASSWORD` (default: `password`)
+- `DB_PASSWORD` (default: empty)
 
 ## Run
 ```bash
@@ -54,6 +54,6 @@ mvn test
 
 ## Postman Validation
 Import:
-- `/home/runner/work/Student-Management-System/Student-Management-System/Anuragmishra12345/Student-Management-System/postman/Student-Management-System.postman_collection.json`
+- `postman/Student-Management-System.postman_collection.json`
 
 Collection includes create, read, update, and delete requests against `{{baseUrl}}`.
